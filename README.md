@@ -135,7 +135,7 @@ emotion-reflection-tool/
 
 ## 🙌 Credits
 
-Designed & built with care by [Your Name]
+Designed & built with care by [Saahil Vishwakarma]
 
 ---
 

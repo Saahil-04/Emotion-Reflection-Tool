@@ -27,6 +27,7 @@ export default function Home() {
       const data = await res.json();
       setResult(data);
     } catch (err) {
+      console.log("Error",err);
       setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);

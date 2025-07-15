@@ -1,10 +1,6 @@
 from transformers import pipeline
 
-emotion_classifier = pipeline(
-    "text-classification",
-    model="j-hartmann/emotion-english-distilroberta-base",
-    top_k=None  
-)
+emotion_classifier = pipeline("text-classification", model="nateraw/bert-base-uncased-emotion")
 
 def detect_emotion(text: str):
     predictions = emotion_classifier(text)[0]

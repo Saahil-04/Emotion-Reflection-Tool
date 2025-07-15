@@ -1,6 +1,6 @@
 
 from ai.gemini_response import generate_response
-from detection.emotion_detection import detect_emotion
+from detection.emotion_detection import analyze_emotion
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -21,7 +21,7 @@ class TextInput(BaseModel):
 
 @app.post("/reflect")
 async def reflect(input: TextInput):
-    emotion, confidence = detect_emotion(input.text)
+    emotion, confidence = analyze_emotion(input.text)
     ai_response = generate_response(input.text, emotion)
     return {
         "emotion": emotion,

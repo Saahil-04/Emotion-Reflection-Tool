@@ -1,7 +1,10 @@
+
+from ai.gemini_response import generate_response
+from detection.emotion_detection import detect_emotion
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import random
+
 
 app = FastAPI()
 
@@ -13,13 +16,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class ReflectionInput(BaseModel):
+class TextInput(BaseModel):
     text: str
 
-@app.post("/analyze")
-def analyze_emotion(data: ReflectionInput):
-    emotions = ["Happy", "Sad", "Anxious", "Excited", "Calm"]
+@app.post("/reflect")
+async def reflect(input: TextInput):
+    emotion, confidence = detect_emotion(input.text)
+    ai_response = generate_response(input.text, emotion)
     return {
-        "emotion": random.choice(emotions),
-        "confidence": round(random.uniform(0.7, 0.99), 2)
+        "emotion": emotion,
+        "confidence": confidence,
+        "response": ai_response
     }

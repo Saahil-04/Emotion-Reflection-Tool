@@ -14,7 +14,7 @@ export function EmotionReflector() {
     setResult(null);
     setError("");
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/analyze`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/reflect`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text }),

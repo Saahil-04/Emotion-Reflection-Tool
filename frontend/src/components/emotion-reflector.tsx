@@ -99,7 +99,7 @@ export function EmotionReflector() {
             >
               <p className="text-2xl font-bold mb-1">{result.emotion}</p>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                Confidence: {Math.round(result.confidence * 100)}%
+                Certainty: {Math.round(result.confidence * 100)}%
               </p>
               <p className="text-sm text-gray-100">{result.response}</p>
             </motion.div>

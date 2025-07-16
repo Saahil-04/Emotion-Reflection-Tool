@@ -1,7 +1,7 @@
 "use client";
 
 import { ThemeToggle } from "@/components/toggle";
-import { EmotionReflector } from "@/components/EmotionReflector";
+import { EmotionReflector } from "@/components/emotion-reflector";
 
 export default function Home() {
   return (
